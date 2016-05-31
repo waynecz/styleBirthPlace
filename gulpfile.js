@@ -6,7 +6,7 @@ var gulp         = require('gulp'),
     path         = require('path');
 
 
-var distDir = path.resolve(__dirname, '../../');// 目标路径以后需要修改这个
+var destDir = path.resolve(__dirname, '../../');// 目标路径以后需要修改这个
 var projectName = process.argv.slice(3)[0];// 项目名字
 
 var processors = [
@@ -25,7 +25,7 @@ gulp.task('css', function () {
         .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(maps.write())
-        .pipe(gulp.dest(distDir));
+        .pipe(gulp.dest(destDir));
 
 });
 
